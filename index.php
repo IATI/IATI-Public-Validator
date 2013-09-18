@@ -3,10 +3,7 @@
 session_start(); //We use sessions to track the uploaded file through the application
 include "settings.php"; //site installation specifics
 include "functions/process_files.php"; //used to deal with file uploads, pasting of code and fetching data from urls
-$tests = array('default','reset','xsd','elements','basic','compliance1','transparency'); //array of allowed $_GET values corresponding to the pages of the tests
-$iati_versions = array("1.01","1.02");
-$current_version = "1.02";
-
+include "vars.php"; // contains definitions such as the test pages, and iati standard versions
 
 //Sanitize the $_GET vars
 if (isset($_GET['version'])) {
@@ -225,8 +222,9 @@ switch ($test) {
             <legend>Version</legend>
             <label for="version">Schema version<br />
             <select name="version" class="span1">
-              <option value="1.01">1.01</option>
-              <option <?php if (isset($_SESSION["version"]) && $_SESSION["version"] == 1.02 ) { echo 'selected="selected"'; } ?> value="1.02">1.02</option>
+            <?php foreach ($iati_versions as $version) { ?>
+              <option <?php if (isset($_SESSION["version"]) && $_SESSION["version"] == $version) { echo 'selected="selected"'; } ?> value="<?php echo $version ?>"><?php echo $version ?></option>
+            <?php } ?>
             </select>
             <button type="submit" class="btn btn-primary">Switch</button>
             <?php if (isset($test) && $test != "default" && in_array($test,$tests)) { echo '<input type="hidden" name="test" value="' . $test . '" />'; } ?>
