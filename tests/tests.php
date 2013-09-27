@@ -1,6 +1,6 @@
 <?php
 
-class StackTest extends PHPUnit_Framework_TestCase {
+class ValidatorTest extends PHPUnit_Framework_TestCase {
     private function well_formed($filepath, $success=TRUE) {
         include './vars.php';
         include './example.settings.php';
@@ -42,38 +42,38 @@ class StackTest extends PHPUnit_Framework_TestCase {
         }
     }
     private function version_independent($version) {
-        $this->validate_xsd('./tests/stub.xml', $version, TRUE);
-        $this->validate_xsd('./tests/66.xml', $version, TRUE);
-        $this->validate_xsd('./tests/activity_schema_FAIL.xml', $version, FALSE);
-        $this->validate_xsd('./tests/activity_schema_PASS.xml', $version, TRUE);
+        $this->validate_xsd('./tests/xml/stub.xml', $version, TRUE);
+        $this->validate_xsd('./tests/xml/66.xml', $version, TRUE);
+        $this->validate_xsd('./tests/xml/activity_schema_FAIL.xml', $version, FALSE);
+        $this->validate_xsd('./tests/xml/activity_schema_PASS.xml', $version, TRUE);
     }
     public function test101() {
         $version = '1.01';
         $this->version_independent($version);
-        $this->validate_xsd('./tests/versions/101not102.xml', $version, TRUE);
-        $this->validate_xsd('./tests/versions/102not101.xml', $version, FALSE);
-        $this->validate_xsd('./tests/versions/103not102.xml', $version, FALSE);
+        $this->validate_xsd('./tests/xml/versions/101not102.xml', $version, TRUE);
+        $this->validate_xsd('./tests/xml/versions/102not101.xml', $version, FALSE);
+        $this->validate_xsd('./tests/xml/versions/103not102.xml', $version, FALSE);
     }
     public function test102() {
         $version = '1.02';
         $this->version_independent($version);
-        $this->validate_xsd('./tests/versions/101not102.xml', $version, FALSE);
-        $this->validate_xsd('./tests/versions/102not101.xml', $version, TRUE);
-        $this->validate_xsd('./tests/versions/103not102.xml', $version, FALSE);
+        $this->validate_xsd('./tests/xml/versions/101not102.xml', $version, FALSE);
+        $this->validate_xsd('./tests/xml/versions/102not101.xml', $version, TRUE);
+        $this->validate_xsd('./tests/xml/versions/103not102.xml', $version, FALSE);
     }
     public function test103() {
         $version = '1.03';
         $this->version_independent($version);
-        $this->validate_xsd('./tests/versions/101not102.xml', $version, FALSE);
-        $this->validate_xsd('./tests/versions/102not101.xml', $version, TRUE);
-        $this->validate_xsd('./tests/versions/103not102.xml', $version, TRUE);
+        $this->validate_xsd('./tests/xml/versions/101not102.xml', $version, FALSE);
+        $this->validate_xsd('./tests/xml/versions/102not101.xml', $version, TRUE);
+        $this->validate_xsd('./tests/xml/versions/103not102.xml', $version, TRUE);
     }
     public function test_well_formed() {
-        $this->well_formed('./tests/well_formed_PASS.xml', TRUE);
-        $this->well_formed('./tests/well_formed_FAIL.xml', FALSE);
+        $this->well_formed('./tests/xml/well_formed_PASS.xml', TRUE);
+        $this->well_formed('./tests/xml/well_formed_FAIL.xml', FALSE);
     }
     //compliance1 test
-    //$this->validate_xsd('./tests/activity_schema_title_FAIL.xml', $version, FALSE);
+    //$this->validate_xsd('./tests/xml/activity_schema_title_FAIL.xml', $version, FALSE);
 
     public function version_sanity($version) {
         include './vars.php';
