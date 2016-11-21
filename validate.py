@@ -36,7 +36,7 @@ class Validate_IATI_XML():
     start_time = None
     completed_time = None
 
-    
+
     def __init__(self, xml=None, iati_version=None):
         logger.info("__init__() method")
         logger.debug('xml={}'.format(xml))
@@ -50,7 +50,7 @@ class Validate_IATI_XML():
         # Perform well-formed check
         if self.validate_well_formed(): # Will set self.xml_raw['etree_obj'] if successful
             # Continue to validate if the data is well formed
-            
+
             if iati_version is None:
                 version = self.get_version()
                 self.iati_version['version_tested'] = version['version']
@@ -72,11 +72,11 @@ class Validate_IATI_XML():
     def prettified_xml_loader(self):
         self.xml_pretty['xml'] = etree.tostring(self.xml_raw['etree_obj'], pretty_print=True)
 
-    
+
     def get_version(self):
         # FIXME - Check user-submitted version number is in the Version codelist
         """
-        Attempt to get the version number specified in iati-activities/@version. 
+        Attempt to get the version number specified in iati-activities/@version.
         If no version present, set as the latest version number.
         Returns:
           Dict containing data with the version found
@@ -92,7 +92,7 @@ class Validate_IATI_XML():
             out['type'] = "Version not found, set to latest version."
         return out
 
-    
+
     def validate(self):
         """
         METHOD NOT CALLED: Candidate for deletion
@@ -101,7 +101,7 @@ class Validate_IATI_XML():
         well_formed = Validate_well_formed(self.xml_raw['xml'])
         return True
 
-    
+
     def get_metadata(self):
         logger.info("get_metadata() method")
         return {
@@ -138,11 +138,11 @@ class Validate_IATI_XML():
         """
         logger.info("validate_well_formed() method")
         try:
-            self.xml_raw['etree_obj'] = etree.fromstring(self.xml_raw['xml'])
+            self.xml_raw['etree_obj'] = etree.fromstring(self.xml_raw['xml'].encode('utf-16'))
             self.status['status_well_formed_xml'] = "Pass"
             logger.info("Passed well-formed check")
             return True
-            
+
         except etree.XMLSyntaxError as exception_obj:
             # exception_obj = XMLSyntaxError('Premature end of data in tag reporting-org line 2, line 6, column 1',)
             self.status['status_well_formed_xml'] = "Fail"
@@ -150,19 +150,19 @@ class Validate_IATI_XML():
             self.errors.append(self.well_formed_error_handler(exception_obj))
             return False
 
-    
+
     def well_formed_error_handler(self, exception_obj):
         """
         Return a dict. Uses regex to capture line numbers from the exception message.
         Input:
-          exception_obj -- An exception object. 
+          exception_obj -- An exception object.
           Example: "Premature end of data in tag iati-activity line 3, line 93, column 1"
         Returns:
           A dict containing lineno, error type, xml context and detailed error message
         """
 
         """
-        NOTE: 
+        NOTE:
         Raw libxml logs are available using exception_obj.error_log.filter_from_level(etree.ErrorLevels.FATAL)
         However the data from these appears to be more confusing in some cases than the overall error message returned in the exception.
         """
@@ -174,7 +174,7 @@ class Validate_IATI_XML():
         element = re.findall(r'tag\s(\S+)', str(exception_obj))
         line_number = re.findall(r'line\s(\d+)', str(exception_obj))
         xml_context = "" #TODO: Could add regex: get opening tag of name 'element' and closing tag at second line and column number
-        
+
         return {
             'type': 'well_formed_error',
             'iati-identifier': None,
@@ -200,7 +200,7 @@ class Validate_IATI_XML():
         # Determine the path to the schema
         if schema_type == "organisation":
             schema_path =  "{}/iati-schemas/{}/iati-organisations-schema.xsd".format(
-                os.path.abspath(os.path.dirname(__file__)), 
+                os.path.abspath(os.path.dirname(__file__)),
                 self.iati_version['version_tested']
                 )
         else:
