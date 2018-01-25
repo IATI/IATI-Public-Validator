@@ -23,7 +23,7 @@ Some basic statistics:
 
 Requirements
 ------------
-PHP > 5.2.11 - for the use of `libxml_disable_entity_loader` to protect against xml injection attacks  
+PHP > 5.4 - for the use of `libxml_disable_entity_loader` to protect against xml injection attacks and to maintain compatibility with Travis CI
 php5-curl is used to fetch remote files, see `functions/fetch_data_from_url.php` (on Ubuntu sudo apt-get install php5-curl)
 
 Quick Start
