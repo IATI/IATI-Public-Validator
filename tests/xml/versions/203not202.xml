@@ -5,7 +5,7 @@
 -->
 
 <iati-activities version="2.03">
-  <iati-activity budget-not-provided="XX"> <!-- at least 1 --><!-- Attribute @budget-not-provided added in v2.03 -->
+  <iati-activity budget-not-provided="xx"> <!-- at least 1 --><!-- Attribute @budget-not-provided added in v2.03 -->
     <iati-identifier></iati-identifier>  <!-- 1 and only 1-->
     <reporting-org type="xx" ref="xx"><narrative>Organisation name</narrative></reporting-org> <!-- 1 and only 1-->
     <title> <!-- 1 and only 1-->
