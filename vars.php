@@ -7,5 +7,5 @@ $tests = array(//array of allowed $_GET values corresponding to the pages of the
     "elements"=>"pages/found_elements.php",
     "reset"=>"pages/front.php"
     );
-$iati_versions = array("1.01","1.02","1.03","1.04","1.05","2.01","2.02");
-$current_version = "2.02";
+$iati_versions = array("1.01","1.02","1.03","1.04","1.05","2.01","2.02", "2.03");
+$current_version = "2.03";
