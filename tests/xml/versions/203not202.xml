@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!-- Tests a minimal v2.03 file with just two of the new attributes added in this version:
+       iati-activity/@budget-not-provided
+       default-aid-type/@vocabulary
+-->
+
+<iati-activities version="2.03">
+  <iati-activity budget-not-provided="xx"> <!-- at least 1 --><!-- Attribute @budget-not-provided added in v2.03 -->
+    <iati-identifier></iati-identifier>  <!-- 1 and only 1-->
+    <reporting-org type="xx" ref="xx"><narrative>Organisation name</narrative></reporting-org> <!-- 1 and only 1-->
+    <title> <!-- 1 and only 1-->
+      <narrative>Xxxxxxx</narrative> <!-- At least 1-->
+    </title>
+    <description>
+      <narrative>Xxxxxxx</narrative> <!-- At least 1-->
+    </description>
+    <participating-org role="xx"></participating-org> <!-- At least 1-->
+    <!--<other-identifier></other-identifier>-->
+    <activity-status code="xx"/> <!-- 1 and only 1-->
+    <activity-date type="xx" iso-date="2018-01-25"/><!-- At least 1 --> <!--Narative allowed-->
+    <activity-date type="xx" iso-date="2018-01-25"><!-- At least 1 --> <!--Narative allowed-->
+      <narrative>Some stuff ere</narrative>
+    </activity-date>
+    <default-aid-type code="xx" vocabulary="xx"/><!-- Attribute @vocabulary added in v2.03 -->
+  </iati-activity>
+</iati-activities>
