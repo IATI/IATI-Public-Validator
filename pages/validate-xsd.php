@@ -25,7 +25,7 @@ require_once 'functions/detect_iati_version.php';
       //Has the version been set by the user to a valid IATI version?
       //echo $_SESSION["version"];
       if(!isset($version) || $version == "auto") { //We put this in place so tests work! tests.php specifies the version already by this point.
-        if (isset($_SESSION["version"]) && in_array($_SESSION["version"],$iati_versions)) {
+        if (isset($_SESSION["version"]) && in_array($_SESSION["version"], $iati_versions, TRUE)) {
           //$detected_version = check_iati_version($xml);
           $version = $_SESSION["version"];
           //echo $version;
@@ -33,7 +33,7 @@ require_once 'functions/detect_iati_version.php';
           //..else..lets try to detect the version
           //NB if user has selected auto detect, then we end up here as well
           //Check the detected version is a valid version
-          if (!in_array($detected_version,$iati_versions)) {
+          if (!in_array($detected_version, $iati_versions, TRUE)) {
             $version = $current_version;
             if (isset($detected_version) && $detected_version !=NULL) {
               if (isset($error_msg)) {
@@ -100,7 +100,7 @@ require_once 'functions/detect_iati_version.php';
                 
                 <?php 
                   if (isset($detected_version) && $detected_version !=NULL) {
-                    if (!in_array($detected_version,$iati_versions)) {
+                    if (!in_array($detected_version, $iati_versions, TRUE)) {
                       echo '<h3 class="fail">Fail</h3>';
                       echo '<div class="alert alert-error">';
                       echo 'We detected version '. htmlspecialchars($detected_version) . ' in your file.<br/>You should use a recognised version of the schema.';
@@ -139,7 +139,7 @@ require_once 'functions/detect_iati_version.php';
                   
                   <?php 
                   if (isset($detected_version) && $detected_version !=NULL) {
-                    if (!in_array($detected_version,$iati_versions)) {
+                    if (!in_array($detected_version, $iati_versions, TRUE)) {
                       echo '<h3 class="fail">Fail</h3>';
                       echo '<div class="alert alert-error">';
                       echo 'We detected version '. htmlspecialchars($detected_version) . ' in your file.<br/>You should use a recognised version of the schema.';
