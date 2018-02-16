@@ -2,7 +2,7 @@
 /* $error_msg and $upload_msg are both set as global variables in:
  *  functions/fetch-data_from_urls.php
  *  functions/process_files.php
- * 
+ *
  * If the file upload is problematic, we issue and alert and present the upload form again
  * If successful we present a tabbed interface with info about the file.
 */
@@ -13,18 +13,18 @@
 			<strong>Sorry.</strong> We can't test that file.<br/>
 			<?php echo $error_msg; ?>
 		</div>
-<?php endif; ?>	
-	
+<?php endif; ?>
+
 
 <?php //Upload file not present, error message set, wellformed not set (this is set at false after data has been received and not yet tested)
 if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error_msg) ) || !isset($_SESSION['wellformed']) ) :?>
 <?php //debug
   /*
-  echo sizeof($_FILES) . '<br/>'; 
-  echo $_SESSION['uploadedfilepath'] . '<br/>'; 
+  echo sizeof($_FILES) . '<br/>';
+  echo $_SESSION['uploadedfilepath'] . '<br/>';
   echo $error_msg . '<br/>';
-  echo $file_path . '<br/>'; 
-  echo $_SESSION['wellformed'] . '<br/>'; 
+  echo $file_path . '<br/>';
+  echo $_SESSION['wellformed'] . '<br/>';
   */
 ?>
 	<p class="lead">Test IATI XML</p>
@@ -56,7 +56,7 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
               <fieldset>
                 <legend>Fetch data from the Web</legend>
                 <label for="url">URL of file:</label>
-                <input type="text" placeholder="Paste URL here" name="url" id="url" class="span5" /> 
+                <input type="text" placeholder="Paste URL here" name="url" id="url" class="span5" />
                 <span class="help-block">Enter an address of an IATI compliant XML file.</span>
                 <button type="submit" class="btn btn-primary">Fetch Data</button>
               </fieldset>
@@ -74,9 +74,9 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
                 <button type="submit" class="btn btn-primary">Submit</button>
               </fieldset>
 						</form>
-					</div>	
-				</div>	
-			</div>	
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
   <!--Notification Area-->
@@ -86,7 +86,7 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
       <div class="alert alert-info">
         <strong>New</strong><br/>
         <ul>
-         <li>We've recently updated this application so that it tests IATI files up to and including version 2.02.</li>
+         <li>We've recently updated this application so that it tests IATI files up to and including version 2.03.</li>
          <li>Use Auto Detect in the version selector and the application will try to test your data to the version it finds.</li>
         </ul>
       </div>
@@ -97,7 +97,7 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
 			if (isset($_SESSION['uploadedfilepath'])) {
 				$file_path = $_SESSION['uploadedfilepath']; //Sanitise/Check this?
 			}
-      
+
       require_once 'functions/get_xml.php';
       $dom = get_xml($file_path);
       if($dom === FALSE) return FALSE;
@@ -131,7 +131,7 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
 		  <?php endif; ?>
 		  <!--<li><a href="#settings">Settings</a></li>-->
 		</ul>
-		 
+
 		<div class="tab-content">
 		  <div class="tab-pane active" id="status">
 			  <!--<h3>Status: We got a file!</h3>-->
@@ -139,7 +139,7 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
 					<div class="span9">
 						<div class="span5">-->
 							<!--<h3>Well-formed check:</h3>-->
-							
+
 							<div>This check tells us if machines are going to be able to read this file.<br/><br/></div>
               <?php echo $test_result; ?>
 							<?php if (isset($error_detail)): ?>
@@ -148,7 +148,7 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
 								</div>
 								See <a href="<?php echo $host; ?>common_errors.php">Common errors</a> for help in understanding the errors.
 							<?php endif; ?>
-							
+
 						<!--</div>
 					</div>
 				</div>-->
@@ -157,9 +157,9 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
 			  <!--<div class="span3">-->
 					<!--<h3>File Details:</h3>-->
 					<div>
-            <?php 
+            <?php
               if (isset($_SESSION['upload_msg'])) {
-                echo $_SESSION['upload_msg']; 
+                echo $_SESSION['upload_msg'];
               } else {
                 echo "File: " . $testing_file_name . "<br/>";
                 echo "Size: " . round(filesize($file_path) / 1024,2) . "KB";
@@ -175,5 +175,5 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
 		  <?php endif; ?>
 		  <!--<div class="tab-pane" id="settings">4</div>-->
 		</div>
- 
+
 <?php endif; ?>
