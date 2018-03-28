@@ -124,9 +124,9 @@ require_once 'functions/detect_iati_version.php';
 								<h3 class="fail">Fail</h3>
 								<div id="intext">
 									<div class="alert alert-error">This file does NOT validate against the IATI <?php echo $schema; ?> Schema (version <?php echo $version; ?>)</div>
-									
-                  <?php if ($version == "2.01") {
-                            echo '<div class="alert alert-info">NOTE: In version 2.01, order of elements in the data is enforced.<br/>If only 1 error message is reported this MAY be because the order of elements is wrong. In this case, fix the error, and then try again</div>';
+
+                  <?php if (in_array($version, array("2.01", "2.02", "2.03"))) {
+                            echo '<div class="alert alert-info">NOTE: In version '.$version.', order of elements in the data is enforced.<br/>If only 1 error message is reported this MAY be because the order of elements is wrong. In this case, fix the error, and then try again</div>';
                           }
                   ?>
                   
