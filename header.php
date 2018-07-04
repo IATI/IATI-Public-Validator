@@ -61,7 +61,7 @@
       <div class="row">
         <div class="span10">
           <p class="lead">
-            <a href="<?php echo $host; ?>"><img src="assets/img/logo.png" width="269" height="70" alt="IATI Logo" /></a>
+            <a href="<?php echo $host; ?>"><img src="http://styles.iatistandard.org/assets/svg/source/logo-colour.svg" width="269" height="70" alt="IATI Logo" /></a>
             IATI Public Validator
           </p>
         </div>
