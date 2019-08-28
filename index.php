@@ -138,18 +138,6 @@ include "header.php";
       </div>
     </div>
     <?php endif; ?>
-	  <!--ABOUT-->
-	  <hr>
-	  <div class="row">
-      <div class="span12">
-        <h3>About the IATI Public Validator</h3>
-        <p>This is a designed as a quick, simple service to allow people to check their IATI XML files.</p>
-        <p>Because IATI files can be varied, complex or even very simple depending on the reporting organisation's needs, 'validation' is a difficult concept.</p>
-        <p>This tool performs some basic checks around the XML, and then some compliance checks against the IATI Standard, an agreed set of political desires, that are not enforced by the IATI schema.</p>
-      </div>
-    </div>
-
-
 <?php
 
 $extrascripts = <<<HTML
