@@ -79,19 +79,17 @@ if( (sizeof($_FILES)==0 && !isset($_SESSION['uploadedfilepath']) || isset($error
 			</div>
 		</div>
 	</div>
-  <!--Notification Area-->
+  
   <hr />
   <div class="row">
-    <div class="span9">
-      <div class="alert alert-info">
-        <strong>New</strong><br/>
-        <ul>
-         <li>We've recently updated this application so that it tests IATI files up to and including version 2.03.</li>
-         <li>Use Auto Detect in the version selector and the application will try to test your data to the version it finds.</li>
-        </ul>
+      <div class="span9">
+        <h4>About the IATI Public Validator</h4>
+        <p>This is a designed as a quick, simple service to allow people to check their IATI XML files.</p>
+        <p>Because IATI files can be varied, complex or even very simple depending on the reporting organisation's needs, 'validation' is a difficult concept.</p>
+        <p>This tool performs some basic checks around the XML, and then some compliance checks against the IATI Standard, an agreed set of political desires, that are not enforced by the IATI schema.</p>
       </div>
     </div>
-  </div>
+  
 <?php else: ?>
 		<?php
 			if (isset($_SESSION['uploadedfilepath'])) {

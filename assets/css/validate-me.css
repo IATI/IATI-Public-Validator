@@ -68,3 +68,12 @@ background: paleturquoise;
 color: #000;
 text-align: center;
 }
+
+#deprecation {
+  background: orange;
+  color: #000;
+  font-weight: bold;
+  padding: 10px auto;
+  text-align: center;
+  text-transform: uppercase;
+  }
