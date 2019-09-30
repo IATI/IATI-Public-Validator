@@ -33,7 +33,7 @@
       if (isset($development_server) && $development_server == true) {
         echo '<div class="alert alert-info alert-notice">NOTE: This is a development version. Do not rely on it.</div>';
       } else {
-        echo '<div class="alert alert-danger alert-notice">
+        echo '<div class="alert alert-warning alert-notice">
           A new IATI validator will be launched later this year, click <a href="https://iatistandard.org/en/news/new-iati-validator-pre-launch-update/">here</a> for more details.
         </div>';
       }
