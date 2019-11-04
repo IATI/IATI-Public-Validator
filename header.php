@@ -31,10 +31,10 @@
   <body>
     <?php
       if (isset($development_server) && $development_server == true) {
-        echo '<div id="development">NOTE: This is a development version. Do not rely on it.</div>';
+        echo '<div class="alert alert-info alert-notice">NOTE: This is a development version. Do not rely on it.</div>';
       } else {
-        echo '<div id="deprecation">
-          A new IATI validator will be launched later this year, click <a href="https://iatistandard.org/en/news/new-iati-validator-pre-launch-update/">here</a> for more details.
+        echo '<div class="alert alert-warning alert-notice">
+          A new IATI validator will be launched later this year. <a href="https://iatistandard.org/en/news/new-iati-validator-pre-launch-update/">Click here for more details.</a>
         </div>';
       }
     ?>
