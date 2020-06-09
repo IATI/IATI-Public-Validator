@@ -34,7 +34,7 @@
         echo '<div class="alert alert-info alert-notice">NOTE: This is a development version. Do not rely on it.</div>';
       } else {
         echo '<div class="alert alert-warning alert-notice">
-          A new IATI validator will be launched later this year. <a href="https://iatistandard.org/en/news/new-iati-validator-pre-launch-update/">Click here for more details.</a>
+          A new IATI validator will be launching soon. <a href="https://iatistandard.org/en/news/new-iati-validator-pre-launch-update/">Click here for more details.</a>
         </div>';
       }
     ?>
