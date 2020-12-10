@@ -1,3 +1,12 @@
+*NOTE*
+====
+
+The new official IATI Validator is live here:
+- [Website](https://iativalidator.iatistandard.org)
+- [GitHub Repo](https://github.com/IATI/IATI-Validator-Actual)
+
+
+
 IATI-Public Validator
 =====================
 
