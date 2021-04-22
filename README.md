@@ -1,5 +1,8 @@
 # _NOTE_
 
+## The IATI-Public-Validator is Deprecated
+- This Repositority is Archived and no longer maintained by IATI.
+
 [Full Announcement](https://discuss.iatistandard.org/t/iatis-datastore-and-validator-tools-launched/2021)
 
 ## Important: Deprecation of old Datastore and Public Validator - 22 March 2021
